@@ -1,0 +1,93 @@
+// main: style.less
+
+div.chips {
+	display: flex;
+	flex-wrap: wrap;
+
+	.chips-list {
+		flex: 0 0 auto;
+		max-width: 100%;
+		position: relative;
+		z-index: 3;
+
+		.chip {
+			position: relative;
+			float: left;
+			display: inline-block;
+			height: 26px;
+			line-height: 26px;
+			margin: 6px 4px;
+			padding: 0 12px;
+			background: @blue;
+			color: #fff;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+			border-radius: 16px;
+			vertical-align: middle;
+			font-size: 14px;
+
+			&.removable {
+				padding-right: 26px;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+			.remove {
+				position: absolute;
+				top: 4px;
+				right: 4px;
+				display: block;
+				width: 18px;
+				height: 18px;
+				line-height: 16px;
+				border-radius: 50%;
+				background:
+				color: #ccc;
+				font-size: 13px;
+				text-align: center;
+				cursor: pointer;
+				.itempress(@blue);
+				.letterpress;
+			}
+
+			&:hover {
+				.remove {
+					background: @red;
+					color: #fff;
+				}
+			}
+		}
+	}
+	.form-control {
+		flex: 1 0 auto;
+		width: auto;
+	}
+	.dialog {
+		.suggestions {
+			li {
+				&.selected {
+					// display: none;
+					position: relative;
+					background: @blue;
+					color: #fff;
+					text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+
+					&:hover {
+						background: @blue;
+					}
+				}
+				&.selected:after {
+					content: '\f00c';
+					position: absolute;
+					top: 0;
+					right: 15px;
+					bottom: 0;
+					font-size: 26px;
+					line-height: 54px;
+					vertical-align: middle;
+					.letterpress(@blue);
+					.fa-mixin;
+				}
+			}
+		}
+	}
+}

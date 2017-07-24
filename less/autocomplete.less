@@ -1,0 +1,103 @@
+// main: style.less
+
+div.autocomplete {
+	background: #fff;
+	position: relative;
+	z-index: 1;
+	color: #333;
+
+	&.active {
+		z-index: 100;
+
+		.dialog {
+
+			.suggestions {
+				display: block;
+			    border-top: 1px solid #f4f4f4;
+			}
+			.message {
+				display: block;
+			}
+		}
+	}
+
+	.form-control {
+		position: relative;
+		z-index: 3;
+        width: 100%;
+	}
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+        width: 40px;
+        height: 36px;
+        line-height: 36px;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 16px;
+        z-index: 4;
+        color: #aaa;
+        cursor: pointer;
+
+        &:before {
+            content: '×';
+        }
+
+        &.visible {
+            display: block;
+        }
+    }
+    .dialog {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: block;
+        width: 100%;
+        max-height: 300px;
+        overflow: hidden;
+        background: #fff;
+        z-index: 2;
+
+        .suggestions {
+			display: none;
+            max-height: 300px;
+            padding: 0;
+            overflow: auto;
+
+            li {
+                padding: 20px 10px;
+                font-size: 13px;
+
+                &.option {
+                    cursor: pointer;
+                    transition: all 0.2s;
+					font-size: 14px;
+					letter-spacing: 0.03em;
+
+                    &:hover,
+                    &:focus {
+                        background: #f2f2f2;
+                        outline: none;
+                    }
+                }
+                .highlite {
+                    background: rgba(110, 200, 255, 0.5);
+                    font-weight: bold;
+                }
+            }
+        }
+		.message {
+			display: none;
+			padding: 15px 10px 10px;
+			font-size: 12px;
+			font-weight: 400;
+
+			&.error {
+				color: @red;
+			}
+		}
+    }
+}
